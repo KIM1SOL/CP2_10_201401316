@@ -4,7 +4,8 @@ public class RacingMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Race race = new Race();
+		race.race();
 	}
 
 }
