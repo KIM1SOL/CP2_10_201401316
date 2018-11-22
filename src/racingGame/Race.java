@@ -8,11 +8,12 @@ public class Race extends Thread {
 	String name;
 	int distance = 0;
 	static int count=1;
-		
+	static int num ;	
 	
-	public Race(String a, Rank b) {
+	public Race(String a, Rank b, int Num) {
 		name = a;
 		rank = b;
+		num = Num;
 	}
 	
 	
@@ -30,12 +31,23 @@ public class Race extends Thread {
 			
 		return distance;
 	}
-		
+	
+	
 	public void run() {
+		
+		
+		
 		while(distance < 100) {
 			System.out.println(name + "번 말은 지금 "+ race() +"m에 있습니다.");
 		}
 		rank.finish(name);
+		
+
+		while(Thread.activeCount() == 2) {
+			rank.printall(num);
+			break;
+		}
+		
 		
 	}
 	
